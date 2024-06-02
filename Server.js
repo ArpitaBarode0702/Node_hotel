@@ -2,7 +2,8 @@
 const express=require("express");
 let app=express();
 
-  const db = require('./db');
+const db = require('./db');
+require('dotenv').config();
 
   const bodyParser = require('body-parser');
 app.use(bodyParser.json());

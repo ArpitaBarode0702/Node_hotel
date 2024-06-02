@@ -1,6 +1,8 @@
 const mongoose=require("mongoose");
 //define the mongodb uri
-const mongoURL='mongodb://localhost:27017/myresturant';
+//const mongoURL='mongodb://localhost:27017/myresturant';
+require('dotenv').config();
+const mongoURL=process.env.Db_Url;
 //set up mongodb connection
 mongoose.connect(mongoURL,{
     useNewUrlParser:true,
@@ -9,6 +11,7 @@ mongoose.connect(mongoURL,{
 //get the default connection 
 //mongoose maintance default connecion objec representing the mongodb connection
 const db=mongoose.connection;
+
 db.on('connected',()=>{
     console.log("Connected to mongodb server");
 });
